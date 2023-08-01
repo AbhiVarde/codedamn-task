@@ -2,7 +2,7 @@ import { BiChevronDown } from "react-icons/bi";
 import { FaHtml5 } from "react-icons/fa";
 import { BsDot, BsThreeDots } from "react-icons/bs";
 import Img from "../images/blacklogo.jpg";
-import playgrounds from "../Data/Portfolio";
+import playgrounds from "../Data/Playgrounds";
 import projects from "../Data/Projects";
 
 const PlaygroundItem = ({ title, languages, sharedWith, timeAgo }: any) => (
