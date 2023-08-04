@@ -9,6 +9,16 @@ const Profile = () => {
   const [showFollowersFollowing, setShowFollowersFollowing] = useState(true);
   const [showXP, setShowXP] = useState(true);
   const [showAchievementBadges, setShowAchievementBadges] = useState(true);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    setSelectedFile(file || null);
+  };
+
+  const handleDeleteClick = () => {
+    setSelectedFile(null);
+  };
 
   const handleSaveChanges = (e: any) => {
     e.preventDefault();
@@ -30,10 +40,32 @@ const Profile = () => {
         <div className="flex gap-4 md:gap-6 lg:gap-10 mb-4">
           <div className="rounded-full overflow-hidden w-16 md:w-20 h-16 md:h-20 bg-gray-300"></div>
           <div className="flex items-center gap-4">
-            <button className="py-2 px-4 bg-blue-700 text-white rounded-lg">
-              Upload New Photo
+            <div>
+              <button
+                className="py-2 px-4 bg-blue-700 text-white rounded-lg hover:border"
+                onClick={() => {
+                  const fileInput = document.getElementById("fileInput");
+                  if (fileInput) {
+                    fileInput.click();
+                  }
+                }}
+              >
+                Upload New Photo
+              </button>
+              <input
+                type="file"
+                id="fileInput"
+                style={{ display: "none" }}
+                onChange={handleFileChange}
+              />
+              {selectedFile && <p>Selected file: {selectedFile.name}</p>}
+            </div>
+            <button
+              className="py-2 px-4 bg-gray-100 rounded-lg hover:border"
+              onClick={handleDeleteClick}
+            >
+              Delete
             </button>
-            <button className="py-2 px-4 bg-gray-100 rounded-lg">Delete</button>
           </div>
         </div>
         <form onSubmit={handleSaveChanges}>
@@ -136,12 +168,15 @@ const Profile = () => {
           </div>
 
           <div className="flex justify-end gap-4">
-            <button type="button" className="py-2 px-4 bg-gray-100 rounded-lg">
+            <button
+              type="button"
+              className="py-2 px-4 bg-gray-100 rounded-lg hover:border"
+            >
               Cancel
             </button>
             <button
               type="submit"
-              className="py-2 px-4 bg-blue-700 text-white rounded-lg"
+              className="py-2 px-4 bg-blue-700 text-white rounded-lg hover:border"
             >
               Save Changes
             </button>

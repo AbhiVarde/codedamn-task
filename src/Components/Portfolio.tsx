@@ -29,59 +29,70 @@ const PlaygroundItem = ({ title, languages, sharedWith, timeAgo }: any) => (
 
 const Portfolio = () => {
   return (
-    <div className="m-2 md:m-4 flex justify-center">
+    <div className="m-2 md:m-4 flex justify-center overflow-y-auto">
       <div className="w-[630px]">
-        <div className="mx-10 my-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
+        <div className="mx-10 my-4 ">
+          <div className="my-4">
             <nav className="flex justify-between">
               <h3 className="text-lg font-semibold">Playgrounds</h3>
               <p className="flex items-center gap-1 text-gray-500 text-sm">
                 See all <BiChevronDown />
               </p>
             </nav>
-            {playgrounds.map((playground) => (
-              <PlaygroundItem key={playground.id} {...playground} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 ">
+              {playgrounds.map((playground) => (
+                <PlaygroundItem key={playground.id} {...playground} />
+              ))}
+            </div>
           </div>
-          <div>
+          <div className="my-2">
             <nav className="flex justify-between">
               <h3 className="text-lg font-semibold">Projects</h3>
               <p className="flex items-center gap-1 text-gray-500 text-sm">
                 See all <BiChevronDown />
               </p>
             </nav>
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="p-4 gap-2 hover:bg-purple-50 hover:border-2 rounded-md hover:border-purple-600 cursor-pointer"
-              >
-                <img src={Img} alt="img" className="h-44 w-64 mb-2" />
-                <div>
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-semibold">{project.title}</h3>
-                    <BsThreeDots className="text-sm text-gray-500" />
-                  </div>
-                  <div className="flex text-sm items-center mb-2">
-                    <p>{project.languages}</p>
-                    <BsDot />
-                    <p>{project.timeAgo}</p>
-                  </div>
-                  <div className="flex gap-1">
-                    <div className="rounded-full overflow-hidden w-6 h-6 bg-gray-300"></div>
-                    <p className="text-sm">{`${project.contributors} contributors`}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 ">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="p-4 gap-2 hover:bg-purple-50 hover:border-2 rounded-md hover:border-purple-600 cursor-pointer"
+                >
+                  <img
+                    src={Img}
+                    alt="img"
+                    className="h-44 w-full md:w-64 mb-2"
+                  />
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-semibold">{project.title}</h3>
+                      <BsThreeDots className="text-sm text-gray-500" />
+                    </div>
+                    <div className="flex text-sm items-center mb-2">
+                      <p>{project.languages}</p>
+                      <BsDot />
+                      <p>{project.timeAgo}</p>
+                    </div>
+                    <div className="flex gap-1">
+                      <div className="rounded-full overflow-hidden w-6 h-6 bg-gray-300"></div>
+                      <p className="text-sm">{`${project.contributors} contributors`}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         <div className="flex justify-end gap-4">
-          <button type="button" className="py-2 px-4 bg-gray-100 rounded-lg">
+          <button
+            type="button"
+            className="py-2 px-4 bg-gray-100 rounded-lg hover:border"
+          >
             Cancel
           </button>
           <button
             type="submit"
-            className="py-2 px-4 bg-blue-700 text-white rounded-lg"
+            className="py-2 px-4 bg-blue-700 text-white rounded-lg hover:border"
           >
             Save Changes
           </button>

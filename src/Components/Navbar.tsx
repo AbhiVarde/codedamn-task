@@ -29,7 +29,7 @@ const NavigationBar = () => {
           <div className="relative">
             <button
               onClick={handleMenuToggle}
-              className="py-1 px-2 text-gray-600 rounded bg-gray-100 text-sm flex items-center"
+              className="py-1 px-2 text-gray-600 rounded bg-gray-100 text-sm flex items-center cursor-pointer"
             >
               {value}
               <BiChevronDown />
@@ -51,16 +51,16 @@ const NavigationBar = () => {
         </div>
         <div className="relative flex items-center mx-2">
           <div className="flex items-center gap-1">
-            <MdOutlineElectricBolt className="text-lg text-blue-700" />
+            <MdOutlineElectricBolt className="text-lg text-blue-700 cursor-pointer" />
             <span className="text-sm">{notificationCount}</span>
           </div>
-          <IoNotificationsOutline className="ml-4 text-lg" />
+          <IoNotificationsOutline className="ml-4 text-lg cursor-pointer" />
           {notificationCount > 0 && (
             <div className="absolute -top-1 right-10 w-4 h-4 rounded-full bg-red-500 text-white flex justify-center items-center text-xs">
               {notificationCount}
             </div>
           )}
-          <div className="ml-4 rounded-full overflow-hidden w-8 h-8 bg-gray-300" />
+          <div className="ml-4 cursor-pointer rounded-full overflow-hidden w-8 h-8 bg-gray-300" />
           <div className="absolute -top-1 -right-2 w-4 h-4 rounded-full bg-black text-white flex justify-center items-center text-xs">
             5
           </div>

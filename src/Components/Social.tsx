@@ -40,8 +40,10 @@ const Social = () => {
             className="w-full mt-2 mb-6 py-2 px-4 border outline-none rounded-lg"
           />
           <div className="flex justify-end gap-4">
-            <button className="py-2 px-4 bg-gray-100 rounded-lg">Cancel</button>
-            <button className="py-2 px-4 bg-blue-700 text-white rounded-lg">
+            <button className="py-2 px-4 bg-gray-100 rounded-lg hover:border">
+              Cancel
+            </button>
+            <button className="py-2 px-4 bg-blue-700 text-white rounded-lg hover:border">
               Save Changes
             </button>
           </div>

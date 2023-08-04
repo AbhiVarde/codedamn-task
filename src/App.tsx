@@ -14,11 +14,11 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="px-2 sm:px-4 md:px-8 lg:px-10 py-4">
+    <div className="h-screen px-2 sm:px-4 md:px-8 lg:px-10 py-4">
       <NavigationBar />
       <div className="flex flex-col md:flex-row">
         <Sidebar activeTab={activeTab} onTabChange={handleTabChange} />
-        <main className="flex-grow justify-center">
+        <main className="flex-grow justify-center ">
           {activeTab === "Profile" && <Profile />}
           {activeTab === "Social" && <Social />}
           {activeTab === "Portfolio" && <Portfolio />}
